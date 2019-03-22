@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="offset-md-4 col-md-4">
+    <div class="form-group">
+      <select name="registros" id="registros" [formControl]="registroControl" class="form-control">
+        <option value="">-Seleccione-</option>
+        <option *ngFor="let item of registros" [value]="item.registry_id">
+          {{ item.name }}-({{ item.cantidad }})
+        </option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<div echarts [options]="chartOption" class="demo-chart"></div>
+
+<table class="table">
+
+  <thead>
+    <tr>
+      <td colspan="2">Resumen</td>
+    </tr>
+    <tr>
+      <th>Campo</th>
+      <th>Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of estadisticas">
+      <td>{{ item.name }}</td>
+      <td>{{ item.value }}</td>
+    </tr>
+  </tbody>
+</table>
